@@ -11,6 +11,15 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
+            Text("Select one of the four optionsfor each part oof the meal.")
+                .italic()
+                .padding(.bottom, 2)
+            
+            Text("Burgers")
+                .bold()
+                .font(.subheadline)
+                .padding(.bottom, 3)
+            
             Picker(selection: .constant(""),
                    label: Text("Burgers"),
                    content: {
@@ -21,16 +30,69 @@ struct ContentView: View {
                 Text("No burger").tag(0)
                 
             })
-            .pickerStyle(MenuPickerStyle())
+            .pickerStyle(SegmentedPickerStyle())
             
             
+            Text("Drinks")
+                .bold()
+                .font(.subheadline)
+                .padding(.bottom, 3)
+            
+            Picker(selection: .constant(""),
+                   label: Text("Drinks"),
+                   content: {
+                
+                Text("Soft drink").tag(130)
+                Text("Orange juice").tag(160)
+                Text("Milk").tag(118)
+                Text("No drink").tag(0)
+                
+            })
+            .pickerStyle(SegmentedPickerStyle())
+            Text("Sides")
+                .bold()
+                .font(.subheadline)
+                .padding(.bottom, 3)
+            
+            Picker(selection: .constant(""),
+                   label: Text("Side order"),
+                   content: {
+                
+                Text("Fries").tag(100)
+                Text("Baked potato").tag(57)
+                Text("Chef salad").tag(70)
+                Text("No side").tag(0)
+                
+            })
+            .pickerStyle(SegmentedPickerStyle())
+            
+            Text("Desserts")
+                .bold()
+                .font(.subheadline)
+                .padding(.bottom, 3)
+            
+            Picker(selection: .constant(""),
+                   label: Text("Dessert"),
+                   content: {
+                
+                Text("Apple pie").tag(167)
+                Text("Sundae").tag(266)
+                Text("Fruit cup").tag(75)
+                Text("No dessert").tag(0)
+               
 
+            })
+            .pickerStyle(SegmentedPickerStyle())
+            .navigationTitle("Menu Selections")
+            Spacer()
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
+        NavigationView {
         ContentView()
+        }
     }
 }
