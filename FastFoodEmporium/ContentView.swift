@@ -8,9 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            Picker(selection: .constant(""),
+                   label: Text("Burgers"),
+                   content: {
+                
+                Text("Cheeseburger").tag(461)
+                Text("Fish burger").tag(431)
+                Text("Veggie burger").tag(420)
+                Text("No burger").tag(0)
+                
+            })
+            .pickerStyle(MenuPickerStyle())
+            
+            
+
+        }
     }
 }
 
