@@ -47,7 +47,7 @@ struct ContentView: View {
                 })
                 .pickerStyle(SegmentedPickerStyle())
                 
-                
+                Text("\(burgerCalories)")
                 
                 
                 Text("Drinks")
@@ -103,7 +103,7 @@ struct ContentView: View {
                 })
                     .pickerStyle(SegmentedPickerStyle())
                     .navigationTitle("Menu Selections")
-                Spacer()
+
             }
             HStack {
                 Text("Total calories")
