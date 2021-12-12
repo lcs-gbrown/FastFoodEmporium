@@ -10,13 +10,13 @@ import SwiftUI
 struct ContentView: View {
     
     @State var burgerCalories = 0
-    @State var calories1 = 0
-    @State var calories2 = 0
-    @State var calories3 = 0
+    @State var drinkCalories = 0
+    @State var sideCalories = 0
+    @State var dessertCalories = 0
     
     // MARK: Computed properties
     var totalCalories: Int {
-        return burgerCalories + calories1 + calories2 + calories3
+        return burgerCalories + drinkCalories + sideCalories + dessertCalories
     }
     
     
@@ -26,28 +26,32 @@ struct ContentView: View {
         
         ScrollView {
             VStack {
-                Text("Select one of the four optionsfor each part oof the meal.")
-                    .italic()
-                    .padding(.bottom, 2)
+               
+                Group {
+                    Text("Select one of the four options for each part of the meal.")
+                        .italic()
+                        .padding(.bottom, 2)
 
-                Text("Burgers")
-                    .bold()
-                    .font(.subheadline)
-                    .padding(.bottom, 3)
+                    Text("Burgers")
+                        .bold()
+                        .font(.subheadline)
+                        .padding(.bottom, 3)
 
-                Picker(selection: $burgerCalories,
-                       label: Text("Burgers"),
-                       content: {
+                    Picker(selection: $burgerCalories,
+                           label: Text("Burgers"),
+                           content: {
 
-                    Text("Cheeseburger").tag(461)
-                    Text("Fish burger").tag(431)
-                    Text("Veggie burger").tag(420)
-                    Text("No burger").tag(0)
+                        Text("Cheeseburger").tag(461)
+                        Text("Fish burger").tag(431)
+                        Text("Veggie burger").tag(420)
+                        Text("No burger").tag(0)
 
-                })
-                .pickerStyle(SegmentedPickerStyle())
-                
-                Text("\(burgerCalories)")
+                    })
+                    .pickerStyle(SegmentedPickerStyle())
+                    
+                    Text("\(burgerCalories)")
+                }
+
                 
                 
                 Text("Drinks")
@@ -55,7 +59,7 @@ struct ContentView: View {
                     .font(.subheadline)
                     .padding(.bottom, 3)
 
-                Picker(selection: .constant(""),
+                Picker(selection: $drinkCalories,
                        label: Text("Drinks"),
                        content: {
 
@@ -66,12 +70,16 @@ struct ContentView: View {
 
                 })
                     .pickerStyle(SegmentedPickerStyle())
+                
+                Text("\(drinkCalories)")
+                
+                
                 Text("Sides")
                     .bold()
                     .font(.subheadline)
                     .padding(.bottom, 3)
 
-                Picker(selection: .constant(""),
+                Picker(selection: $sideCalories,
                        label: Text("Side order"),
                        content: {
 
@@ -82,13 +90,14 @@ struct ContentView: View {
 
                 })
                     .pickerStyle(SegmentedPickerStyle())
-
+                Text("\(sideCalories)")
+                
                 Text("Desserts")
                     .bold()
                     .font(.subheadline)
                     .padding(.bottom, 3)
 
-                Picker(selection: .constant(""),
+                Picker(selection: $dessertCalories,
                        label: Text("Dessert"),
                        content: {
 
@@ -102,6 +111,8 @@ struct ContentView: View {
 
                 })
                     .pickerStyle(SegmentedPickerStyle())
+                Text("\(dessertCalories)")
+                
                     .navigationTitle("Menu Selections")
 
             }
