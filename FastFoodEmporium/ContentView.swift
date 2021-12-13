@@ -25,35 +25,33 @@ struct ContentView: View {
         
         
         ScrollView {
-            VStack {
-               
-                Group {
-                    Text("Select one of the four options for each part of the meal.")
-                        .italic()
-                        .padding(.bottom, 2)
+            Group {
+                Text("Select one of the four options for each part of the meal.")
+                    .italic()
+                    .padding(.bottom, 2)
 
-                    Text("Burgers")
-                        .bold()
-                        .font(.subheadline)
-                        .padding(.bottom, 3)
+                Text("Burgers")
+                    .bold()
+                    .font(.subheadline)
+                    .padding(.bottom, 3)
 
-                    Picker(selection: $burgerCalories,
-                           label: Text("Burgers"),
-                           content: {
+                Picker(selection: $burgerCalories,
+                       label: Text("Burgers"),
+                       content: {
 
-                        Text("Cheeseburger").tag(461)
-                        Text("Fish burger").tag(431)
-                        Text("Veggie burger").tag(420)
-                        Text("No burger").tag(0)
+                    Text("Cheeseburger").tag(461)
+                    Text("Fish burger").tag(431)
+                    Text("Veggie burger").tag(420)
+                    Text("No burger").tag(0)
 
-                    })
-                    .pickerStyle(SegmentedPickerStyle())
-                     
-                    Text("\(burgerCalories)")
-                }
+                })
+                .pickerStyle(SegmentedPickerStyle())
+                 
+                Text("\(burgerCalories)")
+            }
 
-                
-                
+            
+            Group {
                 Text("Drinks")
                     .bold()
                     .font(.subheadline)
@@ -72,7 +70,10 @@ struct ContentView: View {
                     .pickerStyle(SegmentedPickerStyle())
                 
                 Text("\(drinkCalories)")
-                
+
+            }
+            
+            Group {
                 
                 Text("Sides")
                     .bold()
@@ -91,7 +92,11 @@ struct ContentView: View {
                 })
                     .pickerStyle(SegmentedPickerStyle())
                 Text("\(sideCalories)")
-                
+
+            }
+            
+            
+            Group {
                 Text("Desserts")
                     .bold()
                     .font(.subheadline)
@@ -112,10 +117,8 @@ struct ContentView: View {
                 })
                     .pickerStyle(SegmentedPickerStyle())
                 Text("\(dessertCalories)")
-                
-                    .navigationTitle("Menu Selections")
-
             }
+            
             HStack {
                 Text("Total calories")
                     .bold()
@@ -124,13 +127,17 @@ struct ContentView: View {
             }
 
             // Output: Total calories
-            Text("\(String(format: "%.1f", totalCalories))")
+//            Text("\(String(format: "%.1f", totalCalories))")
+//                .bold()
+//                .padding()
+            Text("\(totalCalories)")
                 .bold()
                 .padding()
 
 
             Spacer()
         }
+        .navigationTitle("Menu Selections")
 
 
     }
