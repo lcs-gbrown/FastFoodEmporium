@@ -48,7 +48,7 @@ struct ContentView: View {
 
                     })
                     .pickerStyle(SegmentedPickerStyle())
-                    
+                     
                     Text("\(burgerCalories)")
                 }
 
